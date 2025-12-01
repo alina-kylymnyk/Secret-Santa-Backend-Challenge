@@ -365,10 +365,11 @@ async def process_join_data(message: types.Message, state: FSMContext):
     await game_join.cmd_join(modified_message)
 
 
-@router.message()
+@router.message(~F.text.startswith('/'))
 async def handle_unknown_message(message: types.Message):
     """
     Handle any unknown text messages (fallback handler)
+    Only processes non-command messages
     """
     logger.info(f"Unknown message from user {message.from_user.id}: {message.text}")
 
