@@ -1,6 +1,5 @@
 import logging
 import random
-from typing import Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -32,7 +31,6 @@ class DrawService:
 
     @staticmethod
     def perform_draw(participants):
-        # Validate input
         if not participants:
             raise InsufficientParticipantError("No participants provided")
 
